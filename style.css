@@ -16,7 +16,7 @@ body {
   font-size: 16px;
   font-size: 1rem;
   box-sizing: border-box;
-  max-width: 1240px;
+  max-width: 2000px;
   padding: 0 20px;
 }
 
@@ -45,6 +45,11 @@ a:hover {
 .header {
   height: 100px;
   padding: 40px 100px;
+  width: 100%;
+  max-width: 2000px;
+  position: fixed;
+  background-color: #fff;
+  z-index: 888;
 }
 .header .header_wrap {
   justify-content: space-between;
@@ -57,6 +62,7 @@ a:hover {
   width: 64px;
   height: 41px;
   position: relative;
+  cursor: pointer;
 }
 .header .header_hamburger .line {
   content: "";
@@ -162,12 +168,6 @@ a:hover {
   width: 100%;
   justify-content: space-between;
   flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(200px);
-}
-.feature_wrap .feature_itemLists.scrolin {
-  opacity: 1;
-  transform: translateY(0px);
 }
 @media screen and (max-width: 770px) {
   .feature_wrap .feature_itemLists {
@@ -177,10 +177,29 @@ a:hover {
 .feature_wrap .feature_itemLists .feature_itemList {
   width: calc(33.3333333333% - 13.3333333333px);
   margin-bottom: 45px;
+  opacity: 0;
+  transform: translateY(200px);
 }
 @media screen and (max-width: 770px) {
   .feature_wrap .feature_itemLists .feature_itemList {
     width: 100%;
+  }
+}
+.feature_wrap .feature_itemLists .feature_itemList.scrolin {
+  animation-name: scrolin;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+}
+@keyframes scrolin {
+  from {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+    animation-delay: 1;
   }
 }
 .feature_wrap .feature_itemLists .feature_itemList .feature_itemList_txtBox {
